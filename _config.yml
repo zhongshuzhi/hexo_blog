@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
+title: 希卡科技研究小站
+subtitle: '一盏永远为我们常亮的灯'
+description: '一盏永远为我们常亮的灯'
 keywords:
-author: John Doe
-language: en
+author: Shuzhi ZHONG
+language: en|cn
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: http://zhongsz.tech
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -44,7 +44,7 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: true
+  enable: false
   line_number: true
   auto_detect: false
   tab_replace: ''
@@ -97,24 +97,40 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: ocean
+theme: hexo-theme-aomori
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
-
-search:
-  path: search.xml
-  field: post
-  content: true
   
-feed:
-  type: atom
-  path: atom.xml
-  limit: 20
-  hub:
-  content:
-  content_limit: 140
-  content_limit_delim: ' '
-  order_by: -date	
+# aomori logo
+aomori_logo: /images/avatar.jpg
+# aomori anime for title
+aomori_logo_typed_animated: false
+# menu on the top
+aomori_menu:
+  Home: /
+  Archives: /archives
+
+# menu on the right  
+aomori_widgets:
+  - toc # 文章导航
+  - category  #文章分类
+  - tag # 文章标签
+  - recent_posts  # 最新文章
+  - archive #文章归档
+  
+aomori_copyright: true # or false
+
+aomori_busuanzi: true
+
+aomori_favicon: 🎮
+
+# search api provided by algolia
+algolia:
+  applicationID: 'KK9DE09F5L'
+  apiKey: '43d42c9269a969da5a8011573cb589e5' # Search-Only API Key
+  indexName: 'dev_hexo_blog'
+# switch for algolia  
+aomori_search_algolia: true
