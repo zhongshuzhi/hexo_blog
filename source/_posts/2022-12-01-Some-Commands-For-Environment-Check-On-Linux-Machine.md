@@ -4,7 +4,27 @@ date: 2022-12-01 09:18:23
 tags: Linux
 ---
 ## Linux
-
+```shell
+#机型
+dmidecode | grep "Product Name"
+#CPU
+cat /proc/cpuinfo | grep name | uniq #查看cpu型号、主频
+lscpu | grep -w 'CPU(s)' | grep -v "line\NUMA" #查看逻辑cpu个数
+lscpu | grep -w 'Thread(s) per core' #查看超线程个数，1表示未开启超线程
+grep 'processor' /proc/cpuinfo | sort -u | wc -l #查看逻辑cpu个数
+cat /proc/cpuinfo | grep 'physical id' | sort | uniq | wc -l #查看物理CPU个数(物理机)
+cat /proc/cpuinfo | grep 'cores' | uniq #查看物理CPU个数(虚拟机)
+cat /proc/cpuinfo | grep core #查看结果中两个相邻的Core ID是否相同，若相同则代表打开
+date #查看系统时区
+cat /proc/meminfo | grep MemTotal #查看系统的物理内存大小（KB）
+free -m #以MB为单位显示当前内存大小
+df -k 查看可用存储大小，单位为KB
+# 查看操作系统版本
+cat /etc/issue | grep Linux
+cat /etc/redhad-release
+cat /proc/version #系统内核
+sysctl -a #查看系统参数
+```
 
 ## 数据库
 - MySQL
