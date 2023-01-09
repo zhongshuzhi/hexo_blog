@@ -63,10 +63,10 @@ tags:
      ```
 
    - option中
-     
+
      - expand with下拉框选择**Enter**（回车键）
 
-   * 下方**No Applicable contexts**字样处，点击右方**Define**按钮，选中**Java**
+   - 下方**No Applicable contexts**字样处，点击右方**Define**按钮，选中**Java**
 
    整体配置如图所示
 
@@ -86,8 +86,6 @@ tags:
      groovyScript("def result = '';def params = \"${_1}\".replaceAll('[\\\\[|\\\\]|\\\\s]', '').split(',').toList(); for(i = 0; i < params.size(); i++) {if(params[i] != '')result+='* @param ' + params[i] + ((i < params.size() - 1) ? '\\r\\n ' : '')}; return result == '' ? null : '\\r\\n ' + result", methodParameters()) 
      ```
 
-     
-
    - return一栏Expression修改为
 
      ```groovy
@@ -99,8 +97,6 @@ tags:
    ![NGzmw.png](https://e.im5i.com/2021/07/20/NGzmw.png)
 
 5. 保存（Apply），此时方法体注释已自定义完成
-
-
 
 ------
 
@@ -114,9 +110,7 @@ tags:
 
   ![NGb6Y.png](https://e.im5i.com/2021/07/20/NGb6Y.png)
 
-
-
---------
+------
 
 ## 备注
 
@@ -128,4 +122,4 @@ tags:
 
 - 参考文档
 
-  https://blog.csdn.net/qq_17231297/article/details/114812080
+  <https://blog.csdn.net/qq_17231297/article/details/114812080>
