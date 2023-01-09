@@ -4,10 +4,11 @@ date: 2022-12-01 09:18:23
 tags: Linux
 ---
 ## Linux
+
 ```shell
-#机型
+# 机型
 dmidecode | grep "Product Name"
-#CPU
+# CPU
 cat /proc/cpuinfo | grep name | uniq #查看cpu型号、主频
 lscpu | grep -w 'CPU(s)' | grep -v "line\NUMA" #查看逻辑cpu个数
 lscpu | grep -w 'Thread(s) per core' #查看超线程个数，1表示未开启超线程
@@ -16,6 +17,7 @@ cat /proc/cpuinfo | grep 'physical id' | sort | uniq | wc -l #查看物理CPU个
 cat /proc/cpuinfo | grep 'cores' | uniq #查看物理CPU个数(虚拟机)
 cat /proc/cpuinfo | grep core #查看结果中两个相邻的Core ID是否相同，若相同则代表打开
 date #查看系统时区
+# 内存
 cat /proc/meminfo | grep MemTotal #查看系统的物理内存大小（KB）
 free -m #以MB为单位显示当前内存大小
 df -k 查看可用存储大小，单位为KB
@@ -27,8 +29,9 @@ sysctl -a #查看系统参数
 ```
 
 ## 数据库
+
 - MySQL
-  MySQL的配置文件，在Windows操作系统中存储于my.ini中，在Linux操作系统中存储于my.cnf。
+  MySQL的配置文件，在Windows操作系统中存储于my.ini中，在Linux操作系统中存储于my.cnf
   - my.ini
     my.ini存放在MySQL安装的根目录，以下为my.ini中的参数简介。
     | 序号 | 参数项 | 描述 |
@@ -53,21 +56,20 @@ sysctl -a #查看系统参数
   - my.cnf
     my.cnf是MySQL在Linux/Unix/AIX等系统下启动的配置文件。一般放在MySQL的安装目录中，用户也可以放在其他目录加载。
     `locate my.cnf`列出所有的my.cnf文件。`ps aux|grep mysql| grep 'my.cnf'`找出所有加载了指定配置文件的MySQL进程。
-  
-  MySQL全局配置 `show global variables`.
-  MySQL中影响性能的全局变量（参考）
-  1. bulk_insert_buffer_size
-  2. concurrent_insert
+  - 查看MySQL全局配置 `show global variables`.
+  - MySQL中影响性能的全局变量（参考）
+   1. bulk_insert_buffer_size
+   2. concurrent_insert
      并发插入，当表没有空洞时，某进程获取读锁的情况下，其他进程可以在表尾部进行插入。
      0：不允许并发插入
      1：当表没有空洞时，执行并发插入
      2: 不过是否有空洞都执行并发插入
      默认是1
-  3. delay_key_write
-  4. delayed_insert_limit,delayed_insert_timeout,delayed_queue_size
-  5. expire_log_days
-     自动删除超过指定天数的日志，设置为0时，表示不自动删除。
-  6. flush, flush_time
-  7. join_buffer_size
-  8. key_buffer)suze
-  9. read_buffer_size， read_rnd_buffer_size
+   3. delay_key_write
+   4. delayed_insert_limit,delayed_insert_timeout,delayed_queue_size
+   5. expire_log_days
+    自动删除超过指定天数的日志，设置为0时，表示不自动删除。
+   6. flush, flush_time
+   7. join_buffer_size
+   8. key_buffer_size
+   9. read_buffer_size， read_rnd_buffer_size
